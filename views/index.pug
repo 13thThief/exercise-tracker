@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="description", content="Exercise Tracker by Manpreet Krishan")
+    
+    title Exercise Tracker - API & Microservice
+
+    link(rel="stylesheet" href="/main.css")
+  body(class="container")
+    header(class="header")
+      div(class="wrap")
+        a(class="header-title" href="https://github.com/13thThief/exercise-tracker") Exercise Tracker
+        p(class="header-description") Made with Node.js, Express.js, Pug.js, MongoDB
+    article(class="content")
+      form(action="/api/exercise/new-user" method="POST")
+        label(for="url_input") Add new user
+        input(id="uname" type="text" name="username" placeholder="Username")
+        br
+        input(type="submit" value="Submit")
+      br
+      form(action="/api/exercise/add" method="POST")
+        label(for="url_input") Add exercises
+        | 
+        input(id="uid" type="text" name="userId" placeholder="UserId*")
+        input(id="desc" type="text" name="description" placeholder="Description*")
+        input(id="dur" type="text" name="duration" placeholder="Duration* (mins.)")
+        input(id="dur" type="text" name="date" placeholder="Date (yyyy-mm-dd)")
+        br
+        input(type="submit" value="Submit")
+      br
+      p Get users's exercise log: <code>GET /api/exercise/log?{userId}[&from][&to][&limit]</code>
+      p <strong>{ }</strong> = required, <strong>[ ]</strong> = optional
+      p <strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number
+    footer(class="footer")
+      p Created by <a href="https://github.com/13thThief">Manpreet Krishan</a>
